@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #15001a, #000);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  background: rgba(60, 0, 100, 0.8);
+  padding: 20px 0;
+  border-bottom: 3px solid #6a00ff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+  font-size: 2rem;
+  text-shadow: 0 0 10px #a64dff;
+}
+
+.bio-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.bio-photo {
+  width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(106, 0, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+.bio-text {
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(106, 0, 255, 0.4);
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  background: linear-gradient(135deg, #6a00ff, #9b4dff);
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(106, 0, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(155, 77, 255, 1);
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background: #1a001f;
+  border-top: 2px solid #6a00ff;
+  font-size: 0.9rem;
+}
+
+/* 📱 Адаптация под телефон */
+@media screen and (max-width: 768px) {
+  .bio-photo {
+    width: 180px;
+  }
+
+  .bio-text {
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  .back-btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
