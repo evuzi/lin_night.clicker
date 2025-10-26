@@ -217,7 +217,7 @@ function spawnHalloweenItem() {
   if (!container) return;
 
   const img = document.createElement("img");
-  img.src = "https://i.ibb.co/3c4k1xT/pumpkin.png"; // ссылка на маленькую тыкву
+  img.src = "https://i.ibb.co/MyRVYdHK/image.png"; // ссылка на маленькую тыкву
   img.classList.add("halloween-fall");
   img.style.left = Math.random() * window.innerWidth + "px";
   img.style.animationDuration = 3 + Math.random() * 3 + "s";
@@ -237,6 +237,7 @@ const ytButton = document.getElementById("yt-button");
 const ytPopup = document.getElementById("yt-popup");
 const ytClose = document.getElementById("yt-close");
 const ytIframe = document.getElementById("yt-iframe");
+
 
 
 
