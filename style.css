@@ -1064,6 +1064,100 @@ button:hover {
 
 .logo-title {
   animation: glow 3s ease-in-out infinite;
+/* === Контейнер для контента и рекламы === */
+.page-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+/* === Левая колонка с контентом === */
+.left-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+/* Все кнопки и блоки мини-игр слева */
+.left-content section,
+.left-content .upgrades,
+.left-content .mini-game,
+.left-content .news-section {
+  width: 100%;
+  text-align: left;
+}
+
+/* Центровка элементов внутри секций */
+.left-content a,
+.left-content button,
+.left-content .mini-link {
+  display: block;
+  width: fit-content;
+  margin-left: 0;
+}
+
+/* === Правая колонка: реклама === */
+.side-ad {
+  position: relative;
+  right: 0;
+  top: 0;
+  width: 240px;
+  background: #1a001f;
+  border: 3px solid #6a00ff;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+  padding: 10px;
+  height: fit-content;
+}
+
+.side-ad a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.side-ad img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.side-ad .ad-text {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Кнопка "Нажми на меня" — теперь над футером */
+.fixed-button {
+  display: block;
+  width: fit-content;
+  margin: 40px auto 20px auto;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #6a00ff, #a050ff);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(160, 80, 255, 0.7);
+}
+
+.fixed-button:hover {
+  background: linear-gradient(135deg, #a050ff, #6a00ff);
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(180, 100, 255, 1);
+}
+
 
 
 
