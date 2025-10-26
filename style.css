@@ -1,0 +1,1047 @@
+:root {
+  --bg1: #0a0012;
+  --bg2: #220033;
+  --white: #ffffff;
+  --accent: #bb86fc;
+  --panel: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  padding: 20px 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  flex: 1;
+}
+
+.clicker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+#click-img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  box-shadow: 0 0 25px rgba(187, 134, 252, 0.4);
+}
+#click-img:active {
+  transform: scale(0.95);
+}
+
+.score {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.per-second {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+/* Улучшения */
+.upgrades {
+  margin-top: 40px;
+  width: 90%;
+  max-width: 600px;
+}
+.upgrades h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.upgrade-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+.upgrade {
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 14px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.upgrade button {
+  margin-top: 8px;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.upgrade button:hover {
+  transform: scale(1.05);
+}
+
+/* Мини-игра */
+.mini-game {
+  margin-top: 40px;
+  text-align: center;
+}
+.mini-game h2 {
+  margin-bottom: 10px;
+}
+#play-mini {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+#play-mini:hover {
+  transform: scale(1.05);
+}
+
+.mini-area {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  margin-top: 20px;
+  border: 2px dashed rgba(255,255,255,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.mini-target {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.mini-target:active {
+  transform: scale(0.95);
+}
+
+/* Подвал */
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+.footer button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.footer button:hover {
+  transform: scale(1.05);
+}
+/* === Стиль для мини-игры === */
+.mini-body {
+  background: linear-gradient(180deg, #0a0012, #220033);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.mini-main {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.mini-area.big {
+  position: relative;
+  width: 90vw;
+  height: 70vh;
+  margin: 30px auto;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+#start-mini {
+  background: #bb86fc;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+#start-mini:hover {
+  transform: scale(1.05);
+}
+
+.mini-target {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.mini-target:active {
+  transform: scale(0.95);
+}
+
+.mini-result {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  color: #bb86fc;
+  text-decoration: none;
+  font-weight: 600;
+}
+.back-btn:hover {
+  text-decoration: underline;
+}
+.mini-body {
+  background: linear-gradient(180deg, #0a0012, #220033);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.mini-main {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.mini-area.big {
+  position: relative;
+  width: 90vw;
+  height: 70vh;
+  margin: 30px auto;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+#start-mini {
+  background: #bb86fc;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+#start-mini:hover {
+  transform: scale(1.05);
+}
+
+.mini-target {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.mini-target:active {
+  transform: scale(0.95);
+}
+
+.mini-result {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  color: #bb86fc;
+  text-decoration: none;
+  font-weight: 600;
+}
+.back-btn:hover {
+  text-decoration: underline;
+}
+/* === Мини-игра карточка === */
+.mini-game {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.mini-card {
+  display: inline-block;
+  border: 2px solid #bb86fc;
+  border-radius: 20px;
+  padding: 25px 40px;
+  margin-top: 15px;
+  background: linear-gradient(145deg, #1a0028, #2b0048);
+  box-shadow: 0 0 20px rgba(187, 134, 252, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: 0.3s ease;
+}
+
+.mini-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(187, 134, 252, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.mini-link {
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(90deg, #b388ff, #9a4dff);
+  padding: 12px 30px;
+  border-radius: 14px;
+  transition: 0.25s ease;
+  box-shadow: 0 0 12px rgba(179, 136, 255, 0.4);
+}
+
+.mini-link:hover {
+  background: linear-gradient(90deg, #d3a6ff, #b26cff);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(179, 136, 255, 0.7);
+}
+/* === Мини-игра карточка === */
+.mini-game {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.mini-card {
+  display: inline-block;
+  border: 2px solid #bb86fc;
+  border-radius: 20px;
+  padding: 25px 40px;
+  margin-top: 15px;
+  background: linear-gradient(145deg, #1a0028, #2b0048);
+  box-shadow: 0 0 20px rgba(187, 134, 252, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: 0.3s ease;
+}
+
+.mini-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(187, 134, 252, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.mini-link {
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(90deg, #b388ff, #9a4dff);
+  padding: 12px 30px;
+  border-radius: 14px;
+  transition: 0.25s ease;
+  box-shadow: 0 0 12px rgba(179, 136, 255, 0.4);
+}
+
+.mini-link:hover {
+  background: linear-gradient(90deg, #d3a6ff, #b26cff);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(179, 136, 255, 0.7);
+}
+
+/* === АНТИЧИТ ЭКРАН === */
+.anticheat {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: flash-bg 0.3s infinite;
+}
+
+@keyframes flash-bg {
+  0% { background-color: rgba(255, 0, 0, 0.3); }
+  50% { background-color: rgba(255, 0, 0, 0.8); }
+  100% { background-color: rgba(255, 0, 0, 0.3); }
+}
+
+.anticheat-content {
+  text-align: center;
+  background: rgba(20, 0, 0, 0.9);
+  border: 4px solid red;
+  border-radius: 20px;
+  padding: 40px 60px;
+  color: white;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.7);
+  animation: shake 0.5s infinite, zoomIn 0.8s ease forwards;
+  transform: scale(0.7);
+  opacity: 0;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.anticheat-content img {
+  width: 300px;
+  margin: 20px auto;
+  display: block;
+}
+
+.anticheat-content h1 {
+  color: #ff5555;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px red, 0 0 20px red;
+}
+
+.anticheat-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(4px, -4px); }
+  50% { transform: translate(-4px, 4px); }
+  75% { transform: translate(4px, 4px); }
+  100% { transform: translate(0); }
+}
+
+.hidden {
+  display: none;
+}
+/* Класс для падающих объектов (раньше монетки) */
+.coin {
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.coin:active {
+  transform: scale(0.9);
+}
+/* === КРАСИВАЯ КНОПКА ДЛЯ МИНИ-ИГРЫ === */
+.neon-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6f00ff, #1a002b);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(160, 50, 255, 0.7),
+              inset 0 0 12px rgba(255, 255, 255, 0.1);
+  border: 2px solid #a050ff;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.neon-btn:hover {
+  box-shadow: 0 0 25px rgba(190, 90, 255, 1),
+              inset 0 0 16px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #8b3eff, #2e006b);
+}
+
+.neon-btn:active {
+  transform: scale(0.97);
+  filter: brightness(1.3);
+}
+/* === КРАСИВЫЙ СЧЁТЧИК КЛИКЕРА === */
+.score-panel {
+  background: linear-gradient(135deg, rgba(40, 0, 70, 0.8), rgba(15, 0, 25, 0.8));
+  border: 2px solid rgba(170, 80, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(160, 70, 255, 0.4);
+  padding: 20px 30px;
+  text-align: center;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  width: fit-content;
+  margin: 20px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.score-panel:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(200, 120, 255, 0.8);
+}
+
+.score-label {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #bbaaff;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.score-value {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #9f66ff,
+    0 0 10px #b68cff,
+    0 0 20px #d1b4ff;
+  animation: pulse-glow 2s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from {
+    text-shadow:
+      0 0 6px #a56cff,
+      0 0 12px #c28fff,
+      0 0 22px #d9b6ff;
+  }
+  to {
+    text-shadow:
+      0 0 8px #bb8fff,
+      0 0 16px #d6b3ff,
+      0 0 28px #f0d9ff;
+  }
+}
+
+.score-sub {
+  font-size: 1rem;
+  margin-top: 8px;
+  color: #c9b7ff;
+  text-shadow: 0 0 5px rgba(180, 120, 255, 0.7);
+}
+.mini2-body {
+  background: radial-gradient(circle at center, #1a002b 0%, #0a0015 100%);
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.mini2-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.game-area {
+  position: relative;
+  width: 95%;
+  max-width: 900px;
+  height: 550px;
+  border: 2px solid #a050ff;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(160, 70, 255, 0.6);
+  background: rgba(25, 0, 45, 0.9);
+  overflow: hidden;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.game-area:hover {
+  box-shadow: 0 0 35px rgba(200, 120, 255, 0.9);
+}
+
+
+.back-btn {
+  margin-top: 25px;
+  font-size: 1rem;
+  padding: 12px 28px;
+}
+/* === Мини-игра "Поймай Десептикона" === */
+.mini2-body {
+  background: radial-gradient(circle at center, #1a002b 0%, #080010 100%);
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.mini-header {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  color: #d8b6ff;
+  text-shadow: 0 0 10px #9f6cff, 0 0 20px #b48cff;
+}
+
+.mini2-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  margin-top: 30px;
+}
+/* === Игровое поле на весь экран === */
+.game-area {
+  position: relative;
+  width: 95vw;
+  height: 75vh;
+  margin: 20px auto;
+  border: 3px solid #b06aff;
+  border-radius: 24px;
+  background: radial-gradient(circle at center, rgba(25, 0, 45, 0.95), rgba(10, 0, 20, 0.95));
+  box-shadow: 0 0 40px rgba(180, 100, 255, 0.7);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.game-area:hover {
+  box-shadow: 0 0 60px rgba(200, 120, 255, 1);
+}
+
+
+/* Неоновая кнопка "Играть" */
+.neon-play-btn {
+  padding: 14px 38px;
+  margin-top: 150px;
+  background: linear-gradient(135deg, #5e00cc, #1a002b);
+  border: 2px solid #b06aff;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 15px rgba(160, 60, 255, 0.7),
+              inset 0 0 10px rgba(255, 255, 255, 0.1);
+  animation: play-pulse 2.5s ease-in-out infinite alternate;
+}
+
+.neon-play-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #7a29ff, #2a004d);
+  box-shadow: 0 0 25px rgba(190, 100, 255, 0.9),
+              inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes play-pulse {
+  from { box-shadow: 0 0 10px rgba(160, 60, 255, 0.5); }
+  to { box-shadow: 0 0 25px rgba(190, 100, 255, 1); }
+}
+
+/* Кнопка назад */
+.back-btn {
+  margin-top: 20px;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+/* Счёт */
+.score-display {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  text-shadow: 0 0 10px #c39fff;
+}
+/* === ДЕСЕПТИКОН === */
+/* === Размер и эффект десептикона === */
+.target {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url('https://i.ibb.co/B5LpdXCr/image.png') no-repeat center/contain;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.target:hover {
+  transform: scale(1.15) rotate(8deg);
+  filter: drop-shadow(0 0 10px rgba(180, 80, 255, 0.9));
+}
+
+/* Эффект взрыва при клике */
+@keyframes explode {
+  from { transform: scale(1) rotate(0deg); opacity: 1; }
+  to { transform: scale(1.8) rotate(90deg); opacity: 0; }
+}
+
+.explode {
+  animation: explode 0.2s forwards;
+}
+.mini2-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.score-display {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px #c39fff;
+  color: #fff;
+}
+/* === Новости === */
+.news-section {
+  margin: 40px auto;
+  max-width: 800px;
+  background: rgba(30, 0, 60, 0.6);
+  border: 2px solid #a050ff;
+  border-radius: 16px;
+  padding: 20px 30px;
+  box-shadow: 0 0 25px rgba(160, 70, 255, 0.5);
+  animation: fadeIn 1s ease;
+}
+
+.news-title {
+  text-align: center;
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #c39fff;
+}
+
+.news-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.news-item {
+  background: rgba(50, 0, 90, 0.7);
+  border-left: 4px solid #b06aff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(200, 120, 255, 0.8);
+}
+
+.news-item h3 {
+  color: #e4c3ff;
+  margin-bottom: 5px;
+}
+
+.news-item p {
+  color: #ddd;
+  line-height: 1.4;
+}
+
+.news-date {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #bda7ff;
+  opacity: 0.8;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* === Неоновый футер с рамкой по периметру === */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+
+
+
+/* Эффект пульсации неоновой рамки */
+@keyframes borderPulse {
+  0% { box-shadow: 0 0 20px rgba(180, 80, 255, 0.6), inset 0 0 25px rgba(100, 0, 200, 0.3); }
+  100% { box-shadow: 0 0 35px rgba(210, 130, 255, 1), inset 0 0 45px rgba(150, 0, 255, 0.5); }
+}
+
+/* === Футер внизу страницы (НЕ фиксированный) === */
+.footer {
+  width: 100%;
+  background: rgba(25, 0, 45, 0.9);
+  border-top: 2px solid #b06aff;
+  box-shadow: 0 -5px 20px rgba(180, 100, 255, 0.5);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1rem;
+  color: #cbb3ff;
+  backdrop-filter: blur(5px);
+  animation: footerFadeIn 1.5s ease;
+  margin-top: 60px; /* отступ от контента */
+  border-radius: 0 0 20px 20px;
+}
+
+.footer p {
+  margin: 3px 0;
+}
+
+.footer-brand {
+  color: #e2baff;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(200, 120, 255, 1);
+}
+
+.footer-version {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+@keyframes footerFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* === Всплывающая плашка достижения === */
+.achievement-popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: linear-gradient(135deg, #3b0a5f, #6a00ff);
+  border: 3px solid #b06aff;
+  border-radius: 20px;
+  padding: 30px 40px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(180, 80, 255, 0.7);
+  max-width: 400px;
+  animation: popupFadeIn 0.5s ease;
+}
+
+.popup-content img {
+  width: 150px;
+  margin: 15px 0;
+  border-radius: 12px;
+}
+
+.popup-content button {
+  background: #a050ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.popup-content button:hover {
+  background: #d399ff;
+}
+
+@keyframes popupFadeIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+/* === Halloween фон === */
+body.halloween {
+  background: radial-gradient(circle at center, #1a001f 0%, #0b0007 100%);
+  color: #ffa500; /* оранжевый текст */
+  font-family: "Orbitron", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Кнопки в хэллоуинском стиле */
+button {
+  background: #ff6600;
+  border: 2px solid #ffcc66;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ffcc66;
+  color: #000;
+}
+
+/* Падающие хэллоуинские элементы (тыквы) */
+.halloween-fall {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  top: -50px;
+  z-index: 10;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+/* Плавная анимация при смене картинки */
+.clicker-animate {
+  animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+#yt-fixed-button {
+  position: fixed !important; /* фиксируем на экране */
+  top: 50vh;                   /* по центру экрана вертикально */
+  left: 20px;                  /* отступ слева */
+  transform: translateY(-50%); /* центрирование */
+  z-index: 9999;               /* поверх всех элементов */
+
+  display: inline-block;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #6a00ff, #a050ff);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(160, 80, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+#yt-fixed-button:hover {
+  background: linear-gradient(135deg, #a050ff, #6a00ff);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 25px rgba(160, 80, 255, 1);
+}
+.mini2-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.score-display {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px #c39fff;
+  color: #fff;
+}
+.mini-link {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 10px 0;
+  background: linear-gradient(135deg, #6a00ff, #a050ff);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.mini-link:hover {
+  background: linear-gradient(135deg, #a050ff, #6a00ff);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(160, 80, 255, 0.7);
+}
+.page-wrapper {
+  display: flex;
+  flex-direction: row; /* слева реклама, справа основной контент */
+  align-items: flex-end; /* реклама и футер на одном уровне */
+}
+
+.side-ad {
+  position: relative;   /* привязка к потоку страницы */
+  float: left;          /* выравнивание слева */
+  width: 220px;
+  background: #1a001f;
+  border: 3px solid #6a00ff;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+  margin-bottom: 20px;  /* от футера */
+}
+
+.side-ad a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+}
+
+.side-ad img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.side-ad .ad-text {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

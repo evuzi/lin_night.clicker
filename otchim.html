@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Поймай Отчима Леонида</title>
+  <style>
+    body {
+      background: #100020;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 32px;
+    }
+
+    .game-container {
+      position: relative;
+      width: 90vw;
+      height: 60vh;
+      margin: 20px auto;
+      background: linear-gradient(135deg, #1a001f, #3a003f);
+      border: 3px solid #6a00ff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(160, 80, 255, 0.5);
+    }
+
+    .otchim {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .otchim:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+    }
+
+    #reaction-back {
+      display: inline-block;
+      padding: 12px 25px;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #6a00ff, #a050ff);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(160, 80, 255, 0.7);
+    }
+
+    #reaction-back:hover {
+      background: linear-gradient(135deg, #a050ff, #6a00ff);
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(160, 80, 255, 0.9);
+      color: #fff;
+    }
+
+    .score-timer {
+      font-size: 24px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🕹️ Поймай Отчима Леонида</h1>
+
+  <div id="reaction-game-container" class="game-container"></div>
+
+  <p class="score-timer">Счёт: <span id="reaction-score">0</span></p>
+  <p class="score-timer">Время: <span id="reaction-timer">30</span> сек</p>
+
+  <button id="reaction-back">Вернуться к кликеру</button>
+
+  <script>
+    const container = document.getElementById("reaction-game-container");
+    const scoreDisplay = document.getElementById("reaction-score");
+    const timerDisplay = document.getElementById("reaction-timer");
+    const backButton = document.getElementById("reaction-back");
+
+    let score = 0;
+    let time = 30;
+    const otchimImg = "https://i.ibb.co/bMpFdG9C/image.png";
+
+    const otchim = document.createElement("img");
+    otchim.src = otchimImg;
+    otchim.classList.add("otchim");
+    container.appendChild(otchim);
+
+    function moveOtchim() {
+      const maxX = container.offsetWidth - 80;
+      const maxY = container.offsetHeight - 80;
+      otchim.style.left = Math.random() * maxX + "px";
+      otchim.style.top = Math.random() * maxY + "px";
+    }
+
+    otchim.addEventListener("click", () => {
+      score++;
+      scoreDisplay.textContent = score;
+      moveOtchim();
+    });
+
+    const interval = setInterval(() => {
+      if (time > 0) {
+        time--;
+        timerDisplay.textContent = time;
+      } else {
+        clearInterval(interval);
+        clearInterval(moveInterval);
+        alert("Время закончилось! Ваш счёт: " + score);
+        otchim.remove();
+      }
+    }, 1000);
+
+    const moveInterval = setInterval(() => {
+      if (time > 0) moveOtchim();
+    }, 700);
+
+    backButton.addEventListener("click", () => {
+      window.location.href = "index.html"; // путь к кликеру
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
