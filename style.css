@@ -1031,6 +1031,39 @@ button:hover {
   text-align: center;
 }
 
+/* Заголовок */
+.main-header {
+  background: linear-gradient(90deg, #1a001a, #000);
+  text-align: center;
+  padding: 30px 10px;
+  box-shadow: 0 0 25px rgba(138, 43, 226, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  color: #d9b3ff;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #a64dff, 0 0 25px #6600cc;
+  margin: 0;
+}
+
+.logo-title .beta {
+  color: #ff66ff;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px #ff1aff;
+}
+
+/* Анимация мягкого свечения */
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #a64dff, 0 0 20px #6600cc; }
+  50% { text-shadow: 0 0 25px #cc66ff, 0 0 35px #9933ff; }
+  100% { text-shadow: 0 0 10px #a64dff, 0 0 20px #6600cc; }
+}
+
+.logo-title {
+  animation: glow 3s ease-in-out infinite;
 
 
 
